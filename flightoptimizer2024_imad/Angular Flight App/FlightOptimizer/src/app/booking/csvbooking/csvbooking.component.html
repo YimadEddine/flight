@@ -1,0 +1,33 @@
+<p>csvbooking works!</p>
+<input type="file" (change)="onFileSelected($event)" />
+<button cass="btn-primary" (click)="onUpload()">Upload CSV</button>
+
+<div class="plane" *ngIf="loaded">
+    <!-- <div class="cockpit">
+      <h1>Please select a seat</h1>
+    </div> -->
+    <div class="exit exit--front fuselage">
+      
+    </div>
+    <ol class="cabin fuselage">
+      
+      <li class=" " *ngFor="let item of [].constructor(33); let i = index">
+
+        <ol class="seats" type="A" >
+
+          <li class="seat" *ngFor="let item of [].constructor(6); let j = index" >
+            <input title="test" type="checkbox" [id]="getSeatName(i * 6 + j)"(click)="preventAction($event, i * 6 + j )" [disabled]="getSeatState(i * 6 + j)" />
+            <label [for]="getSeatName(i * 6 + j)">{{ getSeatName(i * 6 + j ) }} </label>
+          </li>
+          
+        </ol>
+      </li>
+      
+    </ol>
+    <div class="exit exit--back fuselage">
+      
+    </div>
+    
+  </div>
+  <h2>Total worth: {{totalworth}}</h2>
+  <div *ngIf="!loaded">Upload a CSV to see reservations</div>

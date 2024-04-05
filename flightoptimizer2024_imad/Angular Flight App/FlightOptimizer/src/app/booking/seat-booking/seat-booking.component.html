@@ -1,0 +1,31 @@
+Choose {{NumberOfSeats}} seats to reserve:
+<div class="plane" *ngIf="loaded">
+    <!-- <div class="cockpit">
+      <h1>Please select a seat</h1>
+    </div> -->
+    <div class="exit exit--front fuselage">
+      
+    </div>
+    <ol class="cabin fuselage">
+      
+      <li class=" " *ngFor="let item of [].constructor(33); let i = index">
+
+        <ol class="seats" type="A" >
+
+          <li class="seat" *ngFor="let item of [].constructor(6); let j = index" >
+            <input type="checkbox" [id]="getSeatName(i * 6 + j)"(click)="ReserveSeat($event, i * 6 + j )" [disabled]="getSeatState(i * 6 + j)" />
+            <label [for]="getSeatName(i * 6 + j)">{{ getSeatName(i * 6 + j ) }} </label>
+          </li>
+          
+        </ol>
+      </li>
+      
+    </ol>
+    <div class="exit exit--back fuselage">
+      
+    </div>
+  </div>
+  <div class="container">
+    <button class="btn-primary btn"  [disabled]="reservedSeats.length != NumberOfSeats" (click)="BookFlight()">Book Flight</button>
+  </div>
+  <div *ngIf="!loaded">Loading..</div>

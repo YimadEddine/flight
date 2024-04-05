@@ -1,0 +1,31 @@
+<div class="container py-5">
+    <div class="card p-4">
+        <h2 class="text-center mb-4">Available Flights</h2>
+        <table class="table table-bordered table-striped">
+            <thead class="thead-light">
+                <tr>
+                    <th>Id</th>
+                    <th>Revenue</th>
+                    <th>Departure</th>
+                    <th>Destination</th>
+                    <th>Available seats</th>
+                    <th>Plane</th>
+                    <th>Action</th>
+                    
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let flight of Flights">
+                    <td>{{flight.id}}</td>
+                    <td>to be added</td>
+                    <td>{{flight.departure}}</td>
+                    <td>{{flight.destination}}</td>
+                    <td>{{flight.availableSeats}}</td>
+                    <td>{{flight.plane?.model}}</td>
+                    <td><a [routerLink]="'/bookflight/'+flight.id" class="btn btn-primary btn-sm btn-block">Book Flight</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
